@@ -1,4 +1,0 @@
-[submodule "src/shared-models"]
-	path = src/shared-models
-	url = git@github.com:wakidurrahman/shared-models.git
-	
