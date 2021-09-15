@@ -1,0 +1,31 @@
+// Import the mongoose module
+const mongoose = require('mongoose');
+/**
+ * Connect to MongoDB.
+ */
+const connectDB = async () => {
+  // Set up default mongoose connection
+  const mongoDBLocalHostUri = `mongodb://localhost:27017/shevabd-db`;
+  const mongoDBAtlasClusterUri = `mongodb+srv://wakidur:713470Wa@shevabd-db.rzy2u.mongodb.net/shevabd-db?retryWrites=true&w=majority`
+
+  mongoose.connect(mongoDBAtlasClusterUri, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+    keepAlive: 1,
+  });
+
+  // Get Mongoose to use the global promise library
+  mongoose.Promise = global.Promise;
+  mongoose.connection.once('open', () => {
+    console.log('MongoDB database connection established successfully!');
+  });
+
+  mongoose.connection.on('error', (err) => {
+    console.log(`Could not connect to the database. Exiting now... ${err}`);
+    process.exit();
+  });
+};
+
+module.exports = connectDB;
