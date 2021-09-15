@@ -1,9 +1,7 @@
-// Import the mongoose module
-const mongoose = require("mongoose");
 /**
  * Schema require list
  */
-const ProductModel = require("../shared-models/products");
+const ProductModel = require("../shared-models/products/product-model");
 
 /**
  * Own modules and dependency function
