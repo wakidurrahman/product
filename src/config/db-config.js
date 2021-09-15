@@ -6,9 +6,8 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   // Set up default mongoose connection
   const mongoDBLocalHostUri = `mongodb://localhost:27017/shevabd-db`;
-  const mongoDBAtlasClusterUri = `mongodb+srv://wakidur:713470Wa@shevabd-db.rzy2u.mongodb.net/shevabd-db?retryWrites=true&w=majority`
 
-  mongoose.connect(mongoDBAtlasClusterUri, {
+  mongoose.connect(mongoDBLocalHostUri, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
